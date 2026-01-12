@@ -87,15 +87,44 @@
             </div>
           </div>
 
-          <div class="col-lg-5 hero-newsletter">
-            <p>Subscribe now to get the latest updates!</p>
-             <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Copy"></div>
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-            </form>
-          </div>
+              <!-- tombol copy -->
+          
+<div class="col-lg-5 hero-newsletter">
+  <p>Subscribe now to get the latest updates!</p>
 
+  <div class="newsletter-form">
+    <input type="email" id="emailInput" name="email" placeholder="Masukkan email">
+    <input type="button" value="Copy" onclick="copyEmail()">
+  </div>
+
+  <div class="loading" style="display:none;">Loading</div>
+  <div class="error-message"></div>
+  <div class="sent-message" style="display:none;">
+    Email berhasil dicopy!
+  </div>
+</div>
+
+<script>
+  function copyEmail() {
+    const email = document.getElementById("emailInput").value;
+
+    if (!email) {
+      alert("Email masih kosong!");
+      return;
+    }
+
+    navigator.clipboard.writeText(email)
+      .then(() => {
+        document.querySelector(".sent-message").style.display = "block";
+      })
+      .catch(err => {
+        document.querySelector(".error-message").innerText = "Gagal menyalin email";
+      });
+  }
+</script>
+
+<!-- akhir tombol copy -->
+          
           <div class="social-links">
             <a href="#"><i class="bi bi-twitter-x"></i></a>
             <a href="#"><i class="bi bi-facebook"></i></a>
