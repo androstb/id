@@ -113,6 +113,7 @@ h6 {
 
 /* PHP Email Form Messages
 ------------------------------*/
+
 .php-email-form .error-message {
   display: none;
   background: #df1529;
@@ -927,4 +928,66 @@ section,
 
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+/* ==================================================
+   COPY FEATURE – NEWSLETTER (ComingSoon Template)
+   ================================================== */
+
+/* Pastikan form tetap fleksibel */
+.hero .hero-newsletter .newsletter-form {
+  position: relative;
+}
+
+/* Pesan sukses & error animasi halus */
+.hero .hero-newsletter .error-message,
+.hero .hero-newsletter .sent-message,
+.hero .hero-newsletter .loading {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Tooltip "Copied!" */
+.hero .hero-newsletter .copied-tooltip {
+  position: absolute;
+  right: 15px;
+  top: -35px;
+  background: #059652;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.hero .hero-newsletter .copied-tooltip.show {
+  opacity: 1;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile improvement */
+@media (max-width: 575px) {
+  .hero .hero-newsletter .newsletter-form input[type=submit] {
+    padding: 0 14px;
+    font-size: 14px;
+  }
+}
+.hero .hero-newsletter input[readonly] {
+  cursor: default;
+  opacity: 0.85;
+}
+.hero .hero-newsletter input[readonly] {
+  cursor: default;
+  opacity: 0.85;
 }
