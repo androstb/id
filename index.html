@@ -255,6 +255,20 @@
       </div>
     </div>
 
+    <input type="text" id="myInput" value="Teks ini bisa dicopy">
+<button onclick="copyInput()">Copy</button>
+
+<script>
+  function copyInput() {
+    const input = document.getElementById("myInput");
+    input.select();
+    input.setSelectionRange(0, 99999); // untuk mobile
+
+    document.execCommand("copy");
+    alert("Teks berhasil dicopy!");
+  }
+</script>
+
   </footer>
 
   <!-- Scroll Top -->
