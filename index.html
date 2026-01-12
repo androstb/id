@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - ComingSoon Bootstrap Template</title>
+  <title>androstb - Update IPTV</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -33,6 +33,25 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.hero-newsletter .newsletter-form');
+  const emailInput = document.getElementById('emailValue');
+  const tooltip = document.querySelector('.copied-tooltip');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    navigator.clipboard.writeText(emailInput.value).then(() => {
+      tooltip.classList.add('show');
+      setTimeout(() => tooltip.classList.remove('show'), 1500);
+    });
+  });
+});
+</script>
+
+
+
 
 <body class="index-page">
 
@@ -42,7 +61,7 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">ComingSoon</h1>
+        <h1 class="sitename">androoidtv</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -66,11 +85,11 @@
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <h2>ComingSoon</h2>
-            <p>We are still working on our website. Stay tuned for updates!</p>
+            <p>Tempat update playlist IPTV !</p>
           </div>
-          <div class="countdown d-flex justify-content-center" data-count="2026/3/15">
+          <div class="countdown d-flex justify-content-center" data-count="2026/3/3">
             <div>
-              <h3 class="count-days">30</h3>
+              <h3 class="count-days">482</h3>
               <h4>Days</h4>
             </div>
             <div>
@@ -87,44 +106,25 @@
             </div>
           </div>
 
-              <!-- tombol copy -->
-          
-<div class="col-lg-5 hero-newsletter">
-  <p>Subscribe now to get the latest updates!</p>
+          <div class="col-lg-5 hero-newsletter">
 
-  <div class="newsletter-form">
-    <input type="email" id="emailInput" name="email" placeholder="Masukkan email">
-    <input type="button" value="Copy" onclick="copyEmail()">
-  </div>
+<div class="hero-newsletter">
+  <p>Free playlist iptv, trimakasih telah mendukung kami</p>
 
-  <div class="loading" style="display:none;">Loading</div>
-  <div class="error-message"></div>
-  <div class="sent-message" style="display:none;">
-    Email berhasil dicopy!
-  </div>
+  <form class="newsletter-form">
+    <input
+      type="email"
+      id="emailValue"
+      value="https://s.id/809Dh"
+      readonly
+    >
+    <input type="submit" value="Copy">
+    <span class="copied-tooltip">Copied!</span>
+  </form>
 </div>
 
-<script>
-  function copyEmail() {
-    const email = document.getElementById("emailInput").value;
 
-    if (!email) {
-      alert("Email masih kosong!");
-      return;
-    }
 
-    navigator.clipboard.writeText(email)
-      .then(() => {
-        document.querySelector(".sent-message").style.display = "block";
-      })
-      .catch(err => {
-        document.querySelector(".error-message").innerText = "Gagal menyalin email";
-      });
-  }
-</script>
-
-<!-- akhir tombol copy -->
-          
           <div class="social-links">
             <a href="#"><i class="bi bi-twitter-x"></i></a>
             <a href="#"><i class="bi bi-facebook"></i></a>
@@ -172,22 +172,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        
-            <input type="text" id="myInput" value="Teks ini bisa dicopy">
-    <button onclick="copyInput()">Copy</button>
-
-    <script>
-  function copyInput() {
-    const input = document.getElementById("myInput");
-    input.select();
-    input.setSelectionRange(0, 99999); // untuk mobile
-
-    document.execCommand("copy");
-    alert("Teks berhasil dicopy!");
-    }
-    </script>
-        
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Dukung kami dengan berdonasi ke cntact dibawah </p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -201,8 +186,8 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="200">
                   <i class="bi bi-geo-alt"></i>
                   <h3>Address</h3>
-                  <p>A108 Adam Street</p>
-                  <p>New York, NY 535022</p>
+                  <p>Pati, Jawa Tengah</p>
+                  <p>Gembong, 59111</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -210,7 +195,7 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="300">
                   <i class="bi bi-telephone"></i>
                   <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
+                  <p>0812 3343 5832</p>
                   <p>0812 5299 5255</p>
                 </div>
               </div><!-- End Info Item -->
@@ -219,7 +204,7 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="400">
                   <i class="bi bi-envelope"></i>
                   <h3>Email Us</h3>
-                  <p>https://androstb.github.io/id/</p>
+                  <p>https://androstb.github.io/id</p>
                   <p>androstb4@gmail.com</p>
                 </div>
               </div><!-- End Info Item -->
@@ -227,9 +212,9 @@
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="500">
                   <i class="bi bi-clock"></i>
-                  <h3>Open Hours</h3>
-                  <p>Monday - Friday</p>
-                  <p>9:00AM - 05:00PM</p>
+                  <h3>Update</h3>
+                  <p>Setiap Minggu </p>
+                  <p>9:00AM - 10:00PM </p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -281,7 +266,7 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">AndrooidTV</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">andrid Tv</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="social-links d-flex justify-content-center">
         <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -294,11 +279,9 @@
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Powered by <a href="https://androstb.github.io/id">androSTB</a>
+        Powered by <a href="https://androstb.github.io/id/">androoidtv
       </div>
     </div>
-
-
 
   </footer>
 
