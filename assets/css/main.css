@@ -760,17 +760,7 @@ section,
   border-color: var(--accent-color);
 }
 
-.hero .hero-newsletter .newsletter-form input:not([type=submit]) {
-  border: 0;
-  padding: 4px;
-  width: 100%;
-  background-color: transparent;
-  color: var(--default-color);
-}
-
-.hero .hero-newsletter .newsletter-form input:not([type=submit]):focus-visible {
-  outline: none;
-}
+hero .hero-newsletter .newsletter-form input
 
 .hero .hero-newsletter .newsletter-form input[type=submit] {
   border: 0;
