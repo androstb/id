@@ -759,7 +759,6 @@ section,
   border-color: var(--accent-color);
 }
 
-.hero .hero-newsletter .newsletter-form input[type=text],
 .hero .hero-newsletter .newsletter-form input[type=email] {
   border: 0;
   padding: 4px;
@@ -768,10 +767,8 @@ section,
   color: var(--default-color);
 }
 
-.hero .hero-newsletter .newsletter-form input[type=text]:focus-visible,
 .hero .hero-newsletter .newsletter-form input[type=email]:focus-visible {
   outline: none;
-}
 }
 
 .hero .hero-newsletter .newsletter-form input[type=submit] {
