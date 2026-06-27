@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>androstb - Update IPTV</title>
+  <title>Index - ComingSoon Bootstrap Template</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -33,25 +33,6 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('.hero-newsletter .newsletter-form');
-  const emailInput = document.getElementById('emailValue');
-  const tooltip = document.querySelector('.copied-tooltip');
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    navigator.clipboard.writeText(emailInput.value).then(() => {
-      tooltip.classList.add('show');
-      setTimeout(() => tooltip.classList.remove('show'), 1500);
-    });
-  });
-});
-</script>
-
-
-
 
 <body class="index-page">
 
@@ -61,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">androoidtv</h1>
+        <h1 class="sitename">ComingSoon</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -85,11 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <h2>ComingSoon</h2>
-            <p>Update your playlist IPTV !</p>
+            <p>We are still working on our website. Stay tuned for updates!</p>
           </div>
-          <div class="countdown d-flex justify-content-center" data-count="2026/12/31">
+          <div class="countdown d-flex justify-content-center" data-count="2027/12/3">
             <div>
-              <h3 class="count-days">90</h3>
+              <h3 class="count-days">482</h3>
               <h4>Days</h4>
             </div>
             <div>
@@ -106,24 +87,38 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
 
-          <div class="col-lg-5 hero-newsletter">
-
 <div class="hero-newsletter">
-  <p>Free playlist iptv, Thanks for supporting us</p>
 
-  <form class="newsletter-form">
-<input
-    type="text"
-    id="emailValue"
-    value="https://s.id/96uF7"
-    readonly>
-    <input type="submit" value="Copy">
-    <span class="copied-tooltip">Copied!</span>
-  </form>
+    <p>Salin link download di bawah ini.</p>
+
+    <div class="newsletter-form">
+        <input
+            type="text"
+            id="copyText"
+            value="https://github.com/user/project"
+            readonly>
+
+        <input
+            type="button"
+            id="copyButton"
+            value="Copy">
+    </div>
+
+    <div id="copyMessage" class="copy-message"></div>
+
 </div>
 
+<script>
 
+function copyText() {
+    const text = document.getElementById("copyText");
 
+    navigator.clipboard.writeText(text.value).then(function () {
+        document.getElementById("copyMessage").innerHTML =
+            "✓ Berhasil disalin";
+    });
+}
+</script>
           <div class="social-links">
             <a href="#"><i class="bi bi-twitter-x"></i></a>
             <a href="#"><i class="bi bi-facebook"></i></a>
@@ -145,12 +140,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <p>
-              A curated collection of publicly available IPTV playlists. This repository includes a wide variety of live TV channels categorized by content type. Ideal for developers, testers, and streaming enthusiasts.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
             </p>
             <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Uptodate playlist iptv.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Free.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>fleksibel</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo</span></li>
             </ul>
           </div>
 
@@ -171,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Have working stream links? Found a broken one? Contributions are welcome via Pull Requests or Issues.Let’s make IPTV streaming more accessible and reliable for everyone. </p>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -185,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="info-item" data-aos="fade" data-aos-delay="200">
                   <i class="bi bi-geo-alt"></i>
                   <h3>Address</h3>
-                  <p>A108 Adam Street/p>
+                  <p>A108 Adam Street</p>
                   <p>New York, NY 535022</p>
                 </div>
               </div><!-- End Info Item -->
@@ -203,17 +199,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="info-item" data-aos="fade" data-aos-delay="400">
                   <i class="bi bi-envelope"></i>
                   <h3>Email Us</h3>
-                  <p>https://androstb.github.io/id</p>
-                  <p>androstb4@gmail.com</p>
+                  <p>info@example.com</p>
+                  <p>contact@example.com</p>
                 </div>
               </div><!-- End Info Item -->
 
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="500">
                   <i class="bi bi-clock"></i>
-                  <h3>Update</h3>
-                  <p>Monday </p>
-                  <p>9:00AM - 10:00PM </p>
+                  <h3>Open Hours</h3>
+                  <p>Monday - Friday</p>
+                  <p>9:00AM - 05:00PM</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -265,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">andrid Tv</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">ComingSoon</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="social-links d-flex justify-content-center">
         <a href=""><i class="bi bi-twitter-x"></i></a>
