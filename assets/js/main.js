@@ -127,4 +127,67 @@
     }, 1000);
   });
 
+  /**
+   * Countdown timer
+   */
+  function updateCountDown(countDownItem) {
+    const timeleft = new Date(countDownItem.getAttribute('data-count')).getTime() - new Date().getTime();
+
+    const days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+    countDownItem.querySelector('.count-days').innerHTML = days;
+    countDownItem.querySelector('.count-hours').innerHTML = hours;
+    countDownItem.querySelector('.count-minutes').innerHTML = minutes;
+    countDownItem.querySelector('.count-seconds').innerHTML = seconds;
+  }
+
+  document.querySelectorAll('.countdown').forEach(function(countDownItem) {
+    updateCountDown(countDownItem);
+    setInterval(function() {
+      updateCountDown(countDownItem);
+    }, 1000);
+  });
+
+  /**
+   * Copy Text
+   */
+  const copyButton = document.getElementById("copyButton");
+
+  if (copyButton) {
+    copyButton.addEventListener("click", function () {
+
+      const text = document.getElementById("copyText");
+      const msg = document.getElementById("copyMessage");
+
+      navigator.clipboard.writeText(text.value).then(function () {
+
+        msg.textContent = "✓ Berhasil disalin";
+        msg.classList.add("show");
+
+        clearTimeout(msg.timer);
+
+        msg.timer = setTimeout(function () {
+
+          msg.classList.remove("show");
+
+          setTimeout(function () {
+            msg.textContent = "";
+          }, 500);
+
+        }, 3000);
+
+      }).catch(function () {
+
+        msg.textContent = "❌ Gagal menyalin";
+        msg.classList.add("show");
+
+      });
+
+    });
+  }
+
 })();
+
