@@ -1,255 +1,242 @@
-(function () {
+/**
+* Template Name: ComingSoon
+* Template URL: https://bootstrapmade.com/comingsoon-free-html-bootstrap-template/
+* Updated: Aug 07 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+(function() {
   "use strict";
 
-  const body = document.body;
-  const header = document.querySelector("#header");
-
-  initScrolled();
-  initMobileNav();
-  initPreloader();
-  initScrollTop();
-  initAOS();
-  initCountdown();
-  initCopyButton();
-  initScrollSpy();
-
-})();
-
-function initScrolled() {
-
+  /**
+   * Apply .scrolled class to the body as the page is scrolled down
+   */
   function toggleScrolled() {
-
-    if (!header) return;
-
-    if (
-      !header.classList.contains('scroll-up-sticky') &&
-      !header.classList.contains('sticky-top') &&
-      !header.classList.contains('fixed-top')
-    ) return;
-
-    body.classList.toggle("scrolled", window.scrollY > 100);
-
+    const selectBody = document.querySelector('body');
+    const selectHeader = document.querySelector('#header');
+    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
+    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
   }
 
-  window.addEventListener("load", toggleScrolled);
-  document.addEventListener("scroll", toggleScrolled);
+  document.addEventListener('scroll', toggleScrolled);
+  window.addEventListener('load', toggleScrolled);
 
+  /**
+   * Mobile nav toggle
+   */
+  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+if (mobileNavToggleBtn) {
+  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
 }
-
-function initMobileNav() {
-
-  const mobileBtn = document.querySelector(".mobile-nav-toggle");
-
-  if (!mobileBtn) return;
-
-  function toggleMobile() {
-
-    body.classList.toggle("mobile-nav-active");
-
-    mobileBtn.classList.toggle("bi-list");
-    mobileBtn.classList.toggle("bi-x");
-
+  function mobileNavToogle() {
+    document.querySelector('body').classList.toggle('mobile-nav-active');
+    mobileNavToggleBtn.classList.toggle('bi-list');
+    mobileNavToggleBtn.classList.toggle('bi-x');
   }
+  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
 
-  mobileBtn.addEventListener("click", toggleMobile);
+  /**
+ * Hide mobile nav on same-page/hash links
+ */
+document.querySelectorAll('#navmenu a').forEach(navmenu => {
 
-  document.querySelectorAll("#navmenu a").forEach(link => {
+  navmenu.addEventListener('click', function (e) {
 
-    link.addEventListener("click", () => {
+    const target = document.querySelector(this.getAttribute('href'));
 
-      if (body.classList.contains("mobile-nav-active")) {
-        toggleMobile();
+    if (target) {
+
+      e.preventDefault();
+
+      // pindahkan active
+      document.querySelectorAll('#navmenu a').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      this.classList.add('active');
+
+      // tutup mobile menu
+      if (document.querySelector('.mobile-nav-active')) {
+        mobileNavToogle();
       }
 
-    });
+      // tinggi header
+      const header = document.querySelector('#header');
+      const offset = header ? header.offsetHeight : 0;
 
-  });
-
-}
-
-function initPreloader() {
-
-  const preloader = document.querySelector("#preloader");
-
-  if (!preloader) return;
-
-  window.addEventListener("load", () => {
-    preloader.remove();
-  });
-
-}
-
-function initScrollTop() {
-
-  const btn = document.querySelector(".scroll-top");
-
-  if (!btn) return;
-
-  function toggle() {
-    btn.classList.toggle("active", window.scrollY > 100);
-  }
-
-  btn.addEventListener("click", e => {
-
-    e.preventDefault();
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-  });
-
-  window.addEventListener("load", toggle);
-  window.addEventListener("scroll", toggle);
-
-}
-
-function initScrollTop() {
-
-  const btn = document.querySelector(".scroll-top");
-
-  if (!btn) return;
-
-  function toggle() {
-    btn.classList.toggle("active", window.scrollY > 100);
-  }
-
-  btn.addEventListener("click", e => {
-
-    e.preventDefault();
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-  });
-
-  window.addEventListener("load", toggle);
-  window.addEventListener("scroll", toggle);
-
-}
-
-function initAOS() {
-
-  window.addEventListener("load", () => {
-
-    AOS.init({
-      duration:600,
-      easing:"ease-in-out",
-      once:true,
-      mirror:false
-    });
-
-  });
-
-}
-
-function initCountdown() {
-
-  document.querySelectorAll(".countdown").forEach(item => {
-
-    function update() {
-
-      const timeleft =
-        new Date(item.dataset.count).getTime() - Date.now();
-
-      item.querySelector(".count-days").textContent =
-        Math.floor(timeleft / 86400000);
-
-      item.querySelector(".count-hours").textContent =
-        Math.floor((timeleft % 86400000) / 3600000);
-
-      item.querySelector(".count-minutes").textContent =
-        Math.floor((timeleft % 3600000) / 60000);
-
-      item.querySelector(".count-seconds").textContent =
-        Math.floor((timeleft % 60000) / 1000);
+      window.scrollTo({
+        top: target.offsetTop - offset,
+        behavior: 'smooth'
+      });
 
     }
 
-    update();
-
-    setInterval(update,1000);
-
   });
 
+});
+
+  /**
+   * Toggle mobile nav dropdowns
+   */
+  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+    navmenu.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentNode.classList.toggle('active');
+      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+      e.stopImmediatePropagation();
+    });
+  });
+
+  /**
+   * Preloader
+   */
+  const preloader = document.querySelector('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove();
+    });
+  }
+
+  /**
+   * Scroll top button
+   */
+  let scrollTop = document.querySelector('.scroll-top');
+
+  function toggleScrollTop() {
+    if (scrollTop) {
+      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+    }
+  }
+if (scrollTop) {
+  scrollTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 }
 
-function initCopyButton() {
+  window.addEventListener('load', toggleScrollTop);
+  document.addEventListener('scroll', toggleScrollTop);
 
-  const button = document.getElementById("copyButton");
+  /**
+   * Animation on scroll function and init
+   */
+  function aosInit() {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }
+  window.addEventListener('load', aosInit);
 
-  if (!button) return;
+ 
+  /**
+   * Countdown timer
+   */
+  function updateCountDown(countDownItem) {
+    const timeleft = new Date(countDownItem.getAttribute('data-count')).getTime() - new Date().getTime();
 
-  const text = document.getElementById("copyText");
-  const msg = document.getElementById("copyMessage");
+    const days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
-  button.addEventListener("click", () => {
+    countDownItem.querySelector('.count-days').innerHTML = days;
+    countDownItem.querySelector('.count-hours').innerHTML = hours;
+    countDownItem.querySelector('.count-minutes').innerHTML = minutes;
+    countDownItem.querySelector('.count-seconds').innerHTML = seconds;
+  }
 
-    navigator.clipboard.writeText(text.value).then(() => {
+  document.querySelectorAll('.countdown').forEach(function(countDownItem) {
+    updateCountDown(countDownItem);
+    setInterval(function() {
+      updateCountDown(countDownItem);
+    }, 1000);
+  });
+
+  /**
+ * Copy Text
+ */
+const copyButton = document.getElementById("copyButton");
+
+if (copyButton) {
+  copyButton.addEventListener("click", function () {
+
+    const text = document.getElementById("copyText");
+    const msg = document.getElementById("copyMessage");
+
+    navigator.clipboard.writeText(text.value).then(function () {
 
       msg.textContent = "✓ Berhasil disalin";
       msg.classList.add("show");
 
       clearTimeout(msg.timer);
 
-      msg.timer = setTimeout(() => {
+      msg.timer = setTimeout(function () {
 
         msg.classList.remove("show");
 
-        setTimeout(() => {
-
+        setTimeout(function () {
           msg.textContent = "";
+        }, 500);
 
-        },300);
+      }, 3000);
 
-      },3000);
+    }).catch(function () {
+
+      msg.textContent = "❌ Gagal menyalin";
+      msg.classList.add("show");
 
     });
+
+  });
+}
+/**
+ * Navbar ScrollSpy
+ */
+const navLinks = document.querySelectorAll("#navmenu a");
+const sections = document.querySelectorAll("section[id]");
+
+function navmenuScrollspy() {
+
+  const header = document.querySelector("#header");
+  const offset = header ? header.offsetHeight + 20 : 100;
+
+  let current = "";
+
+  sections.forEach(section => {
+
+    const sectionTop = section.offsetTop - offset - 10;
+    const sectionHeight = section.offsetHeight;
+
+if (
+    window.scrollY + offset >= sectionTop &&
+    window.scrollY + offset < sectionTop + sectionHeight
+) {
+    current = section.id;
+}
+
+  });
+
+  navLinks.forEach(link => {
+
+    link.classList.remove("active");
+
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
 
   });
 
 }
 
-function initScrollSpy() {
+window.addEventListener("load", navmenuScrollspy);
+window.addEventListener("scroll", navmenuScrollspy);
 
-  const links = document.querySelectorAll("#navmenu a");
-  const sections = document.querySelectorAll("section[id]");
+})();
 
-  function update() {
-
-    const offset = header ? header.offsetHeight + 20 : 100;
-
-    let current = "";
-
-    sections.forEach(section => {
-
-      const top = section.offsetTop - offset;
-      const height = section.offsetHeight;
-
-      if (
-        window.scrollY >= top &&
-        window.scrollY < top + height
-      ) {
-        current = section.id;
-      }
-
-    });
-
-    links.forEach(link => {
-
-      link.classList.toggle(
-        "active",
-        link.getAttribute("href") === "#" + current
-      );
-
-    });
-
-  }
-
-  window.addEventListener("load", update);
-  window.addEventListener("scroll", update);
-
-}
